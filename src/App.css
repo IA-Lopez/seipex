@@ -209,7 +209,6 @@ button:hover {
   max-width: 200px;
 }
 .consoleModule {
-  min-width: 25%;
   max-height: 88vh;
   padding: 1rem;
   border-radius: 5px;
@@ -296,6 +295,10 @@ h2 {
     overflow-x: hidden;
     display: flex;
     flex-direction: row;
+  }
+
+  .consoleModule {
+    width: 25%;
   }
 
   .panel {
