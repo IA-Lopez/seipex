@@ -35,18 +35,25 @@ To run the application locally, follow these steps:
 2. **Open your browser and navigate to:**
    `http://localhost:3000`
 
-## Configuration
+## Use
 
-To configure the fetch/auto-fetch and auto-sell functionalities, follow these instructions within the application:
+To start you should have a Seipex sniper wallet for base.
 
 1. **Fetch/Auto-fetch:**
    - Navigate to the Fetch section.
-   - Choose to display token information once or set an interval for automatic fetching.
+   - Fill address wallet and Initial buy amount
+   - Choose to load and display tokens information once or set an interval for automatic fetching.
 
 2. **Auto-sell:**
    - Navigate to the Auto-sell section.
-   - Set the ROI threshold (e.g., +200%).
+   - Set wallet data, initial buy amount of sniper.
+   - Set ROI threshold (e.g., 200%).
    - Specify the percentage of holdings to sell when the threshold is reached.
+
+3. **Stop loss:**
+   - Follow step 2
+   - Activate Stop loss check before starting process.
+   - Set the stop loss  threshold (e.g., -50%) and sell %.
 
 3. **Manual sell:**
    - Navigate to the Manual sell section.
