@@ -9,6 +9,7 @@ const AutoSell = ({
 }) => {
     const [isStopLossEnabled, setIsStopLossEnabled] = useState(false);
     const calledTokensRef = useRef(calledTokens);
+    const isProcessingRef = useRef(false);
 
     const fetchData = async () => {
         logAndUpdateConsole('Fetching data');
@@ -74,8 +75,18 @@ const AutoSell = ({
         logAndUpdateConsole('Starting auto-sell process');
 
         const id = setInterval(async () => {
+
+            if (isProcessingRef.current) {
+                logAndUpdateConsole('Skipping interval due to ongoing processing');
+                return;
+            }
+
+            isProcessingRef.current = true;
+
             logAndUpdateConsole('Fetching data for auto-sell');
-            const data = await fetchData();
+            try {
+
+                const data = await fetchData();
             if (data) {
                 logAndUpdateConsole('Starting autosell');
                 for (const result of data) {
@@ -117,8 +128,13 @@ const AutoSell = ({
                         }
                     }
                 }
+
             } else {
                 logAndUpdateConsole('No data fetched for autosell');
+            }
+
+            } finally {
+                isProcessingRef.current = false;
             }
         }, 3000); // Refresh every 3 seconds
 
